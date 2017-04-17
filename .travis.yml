@@ -1,0 +1,15 @@
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      compiler: g++
+      addons:
+        apt:
+          packages:
+            - g++-5
+      env: COMPILER=g++-5
+    - os: osx
+      osx_image: xcode 8.3
+script: ./build.sh
+
