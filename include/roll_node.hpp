@@ -13,11 +13,14 @@ namespace Diceroll {
         
         virtual int value() const override;
         
-        virtual std::shared_ptr<ExpressionNode> reroll() const override;
+        virtual DiceExpr reroll() const override;
+        
+        virtual const Distribution& distribution() const override;
         
     private:
         const int type;
         const int _value;
+        const Distribution dist;
     };
 }
 #endif

@@ -33,7 +33,6 @@ namespace Diceroll {
         int min() const noexcept;
         
         Distribution convolveAdd(const Distribution& o) const noexcept;
-        
     private:
         MapType map;
     };

@@ -6,7 +6,9 @@ namespace Diceroll {
         RollNode(type, RollNode::rollDice(type)) {}
     
     RollNode::RollNode(int type, int value) :
-    type(type), _value(value) {
+    type(type),
+    _value(value),
+    dist(Distribution::uniformRange(1, type)) {
         if(_value > type || _value < 1) {
             throw std::runtime_error("Impossible roll");
         }
@@ -22,8 +24,12 @@ namespace Diceroll {
         return _value;
     }
     
-    std::shared_ptr<ExpressionNode> RollNode::reroll() const {
-        return std::make_shared<RollNode>(type);
+    DiceExpr RollNode::reroll() const {
+        return RollNode(type);
+    }
+    
+    const Distribution& RollNode::distribution() const {
+        return dist;
     }
     
 }
