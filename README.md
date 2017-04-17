@@ -1,4 +1,6 @@
 # Diceroll-cpp
+[![Build Status](https://travis-ci.org/AnthonySuper/diceroll-cpp.svg?branch=master)](https://travis-ci.org/AnthonySuper/diceroll-cpp)
+
 
 ## What is it?
 
