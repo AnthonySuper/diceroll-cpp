@@ -2,10 +2,10 @@
 #include <random>
 
 namespace Diceroll {
-    RollNode::RollNode(int type) :
+    RollNode::RollNode(ResultNum type) :
         RollNode(type, RollNode::rollDice(type)) {}
     
-    RollNode::RollNode(int type, int value) :
+    RollNode::RollNode(ResultNum type, ResultNum value) :
     type(type),
     _value(value),
     dist(Distribution::uniformRange(1, type)) {
@@ -20,7 +20,7 @@ namespace Diceroll {
         return distribution(generator);
     }
     
-    int RollNode::value() const {
+    ExpressionNode::ResultNum RollNode::value() const {
         return _value;
     }
     

@@ -11,6 +11,7 @@ namespace Diceroll {
     using is_dice_expr_t = typename std::is_base_of<ExpressionNode, T>;
     
     
+    
     class DiceExpr {
     public:
         template<typename T>
@@ -19,7 +20,7 @@ namespace Diceroll {
         DiceExpr(std::shared_ptr<ExpressionNode> node);
         DiceExpr(const DiceExpr &) = default;
         DiceExpr(DiceExpr&&) = default;
-        DiceExpr& operator=(const DiceExpr&) = delete;
+        DiceExpr& operator=(const DiceExpr&) = default;
         const ExpressionNode& operator*() const;
         const ExpressionNode* operator->() const;
         const DiceExpr operator+(const DiceExpr& other);

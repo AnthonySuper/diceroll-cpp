@@ -8,7 +8,8 @@ namespace Diceroll {
      This class models a probabilty distribution.
      */
     class Distribution {
-        using MapType = std::map<int, double>;
+        using ValueType = long long;
+        using MapType = std::map<ValueType, double>;
     public:
         static Distribution uniformRange(int start, int end);
         

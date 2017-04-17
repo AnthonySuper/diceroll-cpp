@@ -8,7 +8,8 @@
 namespace Diceroll {
     class ExpressionNode {
     public:
-        virtual int value() const = 0;
+        using ResultNum = long long;
+        virtual ResultNum value() const = 0;
         virtual DiceExpr reroll() const = 0;
         virtual const Distribution& distribution() const = 0;
     };

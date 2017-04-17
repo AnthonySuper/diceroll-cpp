@@ -8,7 +8,7 @@ namespace Diceroll {
         inline IntegerNode(int i) : num(i),
         dist(Distribution::uniformRange(i, i)){}
         
-        inline virtual int value() const override {
+        inline virtual ResultNum value() const override {
             return num;
         }
         
@@ -21,7 +21,7 @@ namespace Diceroll {
         }
         
     private:
-        const int num;
+        const ResultNum num;
         const Distribution dist;
         
     };

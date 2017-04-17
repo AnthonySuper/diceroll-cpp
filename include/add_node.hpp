@@ -19,7 +19,7 @@ namespace Diceroll {
         
         virtual DiceExpr reroll() const override;
         
-        virtual int value() const override {
+        virtual ResultNum value() const override {
             return (lhs->value() + rhs->value());
         }
         

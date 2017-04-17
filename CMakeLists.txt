@@ -7,7 +7,8 @@ set(PROJECT_SRCS
   src/distribution.cpp
   src/add_node.cpp
   src/dice_expr.cpp
-  src/integer_node.cpp)
+  src/integer_node.cpp
+  src/util.cpp)
 
 set(PROJECT_INCLUDES
   include/expression_node.hpp
@@ -15,7 +16,8 @@ set(PROJECT_INCLUDES
   include/distribution.hpp
   include/add_node.hpp
   include/dice_expr.hpp
-  include/integer_node.hpp)
+  include/integer_node.hpp
+  include/util.hpp)
 
 set(PROJECT_TEST_SRCS
   test/main.cpp
@@ -23,7 +25,8 @@ set(PROJECT_TEST_SRCS
   test/test_distribution.cpp
   test/test_add_node.cpp
   test/test_dice_expr.cpp
-  test/test_integer_node.cpp)
+  test/test_integer_node.cpp
+  test/test_util.cpp)
 
 source_group(test_sources FILES ${PROJECT_TEST_SRCS})
 source_group(lib_sources FILES ${PROJECT_SRCS})
