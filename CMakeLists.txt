@@ -3,15 +3,18 @@ cmake_minimum_required(VERSION 3.2)
 project(diceroll-cpp)
 
 set(PROJECT_SRCS
-  src/roll_node.cpp)
+  src/roll_node.cpp
+  src/distribution.cpp)
 
 set(PROJECT_INCLUDES
   include/expression_node.hpp
-  include/roll_node.hpp)
+  include/roll_node.hpp
+  include/distribution.hpp)
 
 set(PROJECT_TEST_SRCS
   test/main.cpp
-  test/test_roll_node.cpp)
+  test/test_roll_node.cpp
+  test/test_distribution.cpp)
 
 source_group(test_sources FILES ${PROJECT_TEST_SRCS})
 source_group(lib_sources FILES ${PROJECT_SRCS})
