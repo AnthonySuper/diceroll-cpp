@@ -34,3 +34,14 @@ TEST_CASE("Distribution::convolveAdd 2d20", "[Distribution]") {
     REQUIRE(both.min() == 2);
     REQUIRE(both.max() == 40);
 }
+
+TEST_CASE("Convolve works", "[Distribution]") {
+    auto d2 = Distribution::uniformRange(1, 2);
+    auto twod2 = d2.convolve(d2, [](auto a, auto b){
+        return a + b;
+    });
+    REQUIRE(twod2[1] == Approx(0));
+    REQUIRE(twod2[2] == Approx(1.0 / 4));
+    REQUIRE(twod2[3] == Approx(0.5));
+    REQUIRE(twod2[4] == Approx(1.0 / 4));
+}

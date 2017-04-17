@@ -33,8 +33,35 @@ namespace Diceroll {
         int min() const noexcept;
         
         Distribution convolveAdd(const Distribution& o) const noexcept;
+        
+        template<typename BinaryOperator>
+        Distribution convolve(const Distribution& other,
+                              BinaryOperator op) const noexcept(noexcept(op));
+        
     private:
         MapType map;
     };
+    
+    template<typename BinaryOperator>
+    Distribution Distribution::convolve(const Distribution& other,
+                                        BinaryOperator op) const noexcept(noexcept(op)) {
+        
+        Distribution ret;
+        auto& m = ret.map;
+        auto mergeIn = [&](int val, double prob) {
+            if(m.find(val) == m.end()) {
+                m.emplace(std::make_pair(val, 0));
+            }
+            auto loc = m.find(val);
+            loc->second += prob;
+        };
+        for(int i = min(); i <= max(); ++i) {
+            for(int k = other.min(); k <= other.max(); k++) {
+                auto ret = op(i, k);
+                mergeIn(op(i, k), (*this)[i] * other[k]);
+            }
+        }
+        return ret;
+    }
 }
 #endif
