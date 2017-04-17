@@ -3,7 +3,6 @@ set -ex
 
 if [ -n "$COMPILER" ]; then
   export CXX="$COMPILER"
-
 fi
 
 mkdir -p build
