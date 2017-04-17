@@ -2,7 +2,7 @@
 #include <numeric>
 
 namespace Diceroll {
-    double Distribution::operator[](int i) const {
+    Distribution::ProbType Distribution::operator[](ValueType i) const {
         auto it = map.find(i);
         if(it == map.end()) {
             return 0.0;
@@ -23,14 +23,14 @@ namespace Diceroll {
     }
     
     
-    Distribution Distribution::uniformRange(int start, int end) {
+    Distribution Distribution::uniformRange(ValueType start, ValueType end) {
         if(end < start) {
             throw std::runtime_error("Range is backwards!");
         }
         double each = 1.0 / ((end - start) + 1);
         Distribution d;
         MapType &map = d.map;
-        for(int i = start; i <= end; ++i) {
+        for(auto i = start; i <= end; ++i) {
             map.emplace(std::make_pair(i, each));
         }
         return d;

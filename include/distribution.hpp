@@ -9,15 +9,16 @@ namespace Diceroll {
      */
     class Distribution {
         using ValueType = long long;
-        using MapType = std::map<ValueType, double>;
+        using ProbType = long double;
+        using MapType = std::map<ValueType, ProbType>;
     public:
-        static Distribution uniformRange(int start, int end);
+        static Distribution uniformRange(ValueType start, ValueType end);
         
         /**
          Obtain the probability of a given value i.
          If i is not in the map, 0.0 will be returned.
          */
-        double operator[](int i) const;
+        ProbType operator[](ValueType i) const;
         
         /**
          Obtain a reference to the underlying mapping type.
