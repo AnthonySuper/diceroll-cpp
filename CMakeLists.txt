@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.2)
 
 project(diceroll-cpp)
 
+enable_testing()
+
 set(PROJECT_SRCS
   src/roll_node.cpp
   src/distribution.cpp
@@ -38,6 +40,8 @@ target_include_directories(diceroll_cpp PUBLIC include/)
 add_executable(catch_tests ${PROJECT_SRCS} 
   ${PROJECT_INCLUDES}
   ${PROJECT_TEST_SRCS})
+
+  add_test(NAME catch_tests COMMAND catch_tests)
 
 target_include_directories(catch_tests PRIVATE lib)
 target_include_directories(catch_tests PRIVATE include/)

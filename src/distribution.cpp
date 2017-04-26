@@ -33,6 +33,7 @@ namespace Diceroll {
         for(auto i = start; i <= end; ++i) {
             map.emplace(std::make_pair(i, each));
         }
+        
         return d;
     }
     

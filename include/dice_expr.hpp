@@ -8,7 +8,7 @@ namespace Diceroll {
     class ExpressionNode;
     
     template<class T>
-    using is_dice_expr_t = typename std::is_base_of<ExpressionNode, T>;
+    using is_dice_expr = typename std::is_base_of<ExpressionNode, T>;
     
     
     
@@ -16,7 +16,7 @@ namespace Diceroll {
     public:
         template<typename T>
         DiceExpr(T&& expr,
-                 typename std::enable_if_t<is_dice_expr_t<T>::value>* = 0);
+                 typename std::enable_if_t<is_dice_expr<T>::value>* = 0);
         DiceExpr(std::shared_ptr<ExpressionNode> node);
         DiceExpr(const DiceExpr &) = default;
         DiceExpr(DiceExpr&&) = default;
@@ -29,7 +29,7 @@ namespace Diceroll {
     };
     
     template<typename T>
-    DiceExpr::DiceExpr(T&& expr, typename std::enable_if_t<is_dice_expr_t<T>::value>*) :
+    DiceExpr::DiceExpr(T&& expr, typename std::enable_if_t<is_dice_expr<T>::value>*) :
     DiceExpr(std::make_shared<T>(expr)) {}
     
 }

@@ -13,6 +13,7 @@ namespace Diceroll {
         }
         
         inline virtual const Distribution& distribution() const override {
+            
             return dist;
         }
         
